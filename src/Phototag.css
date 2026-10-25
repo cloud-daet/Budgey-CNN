@@ -12,7 +12,7 @@
   --need: #1b7a3c;
 
   /* Sizes: tweak these first */
-  --pad-x: 45px;       /* space on the left and right of the sheet */
+  --pad-x: clamp(24px, 11vw, 45px);       /* space on the left and right of the sheet */
   --field-gap: 14px;   /* space between fields */
   --overlap: 28px;     /* how far the sheet covers the photo */
 
@@ -307,4 +307,18 @@
 .tag button:focus-visible {
   outline: 3px solid var(--want);
   outline-offset: 2px;
+}
+
+/* Short screens: tighten the form so it still fits */
+@media (max-height: 680px) {
+  .tag { --field-gap: 10px; --overlap: 20px; }
+  .sheet { padding-top: 18px; padding-bottom: 20px; }
+  .sheet__title { font-size: 26px; margin: 8px 0 6px; }
+  .sheet__save { height: 46px; }
+}
+
+/* iPhone Safari zooms into any input with text smaller than 16px.
+   This stops that, and only applies on iOS. */
+@supports (-webkit-touch-callout: none) {
+  .box, .box input { font-size: 16px; }
 }
