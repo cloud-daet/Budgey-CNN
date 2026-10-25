@@ -17,9 +17,9 @@
   --overlap: 28px;     /* how far the sheet covers the photo */
 
   width: 100%;
-  max-width: 400px;
-  height: 100dvh;
-  max-height: 874px;
+  max-width: var(--app-max-w);
+  height: var(--app-h);
+  overflow: hidden;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
