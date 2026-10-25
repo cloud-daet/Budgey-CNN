@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import BottomNav from "./Bottomnav";
 import "./Gallery.css";
+import icons from "./icons";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -136,17 +137,7 @@ export default function Gallery({ entries, onNavigate, onDelete, onEdit }) {
       <section className="gallery__body">
         {entries.length === 0 ? (
           <div className="empty">
-            <svg width="150" height="130" viewBox="0 0 150 130" aria-hidden="true">
-              <path
-                fill="#8d8d8d"
-                d="M16 40a8 8 0 0 1 8-8h4v70a10 10 0 0 0 10 10h66a8 8 0 0 1-8 8H38a22 22 0 0 1-22-22V40z"
-                transform="translate(0 4) rotate(-6 20 70)"
-              />
-              <rect x="30" y="8" width="112" height="96" rx="16" fill="#8d8d8d" />
-              <circle cx="58" cy="36" r="9" fill="#f9f8f4" />
-              <path d="M30 104V88l30-30 22 22 18-18 42 40v2z" fill="#f9f8f4" />
-              <path d="M30 104V94l30-30 22 22 18-18 42 40v-2a16 16 0 0 1-16 16H46a16 16 0 0 1-16-16z" fill="#8d8d8d" />
-            </svg>
+            <img src={icons.emptyGallery} width="150" height="130" alt="" />
             <p>The photos you took in this app will show up here</p>
           </div>
         ) : (
