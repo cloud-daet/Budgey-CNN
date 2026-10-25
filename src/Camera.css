@@ -7,7 +7,8 @@
   --orange: #ee9b2f;
   --bracket: #f5b400;
   --grid-line: rgba(255, 255, 255, 0.2);
-  --side-margin: 32px;
+  --side-margin: clamp(16px, 8vw, 32px);
+  --vf-max-h: 58dvh;
 }
 
 html, body, #root {
@@ -59,8 +60,9 @@ html, body, #root {
 /* ---- Viewfinder ---- */
 .viewfinder {
   position: relative;
-  margin: clamp(20px, 8dvh, 72px) var(--side-margin) 0;
-  aspect-ratio: 4 / 5;
+  width: min(calc(100% - 2 * var(--side-margin)), calc(var(--vf-max-h) * 0.75));
+  margin: clamp(16px, 5dvh, 72px) auto 0;
+  aspect-ratio: 3 / 4;
   background: #2a1d15;
 }
 
@@ -130,8 +132,8 @@ html, body, #root {
 
 /* ---- Bottom controls ---- */
 .controls {
-  margin-top: auto;
-  padding: 0 var(--side-margin) clamp(20px, 5dvh, 48px);
+  margin-top: clamp(44px, 10dvh, 90px);
+  padding: 0 var(--side-margin) clamp(16px, 3dvh, 32px);
   display: flex;
   align-items: center;
   justify-content: space-between;
